@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bencode Technologies | Landing Page</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Section -->
+  <nav>
+    <!-- Navigation Brand with Round Logo -->
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="Bencode Technologies Logo" class="logo">
+      Bencode Technologies
+    </div>
+    <!-- Navigation Toggle for Mobile -->
+    <div class="nav-toggle" id="navToggle">&#9776;</div>
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Landing Page Section -->
+  <section class="landing" id="home">
+    <div class="landing-content">
+      <h1>Welcome to Bencode Technologies</h1>
+      <p>Innovative Digital Solutions for Modern Business</p>
+      <button class="cta-btn" onclick="window.location.href='#about'">Learn More</button>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+<section id="about">
+  <div class="about-container">
+    <h2>About Us</h2>
+    <div class="about-content">
+      <!-- Text Column -->
+      <div class="about-text">
+        <p>
+          Bencode Technologies is a forward-thinking technology firm dedicated to delivering innovative digital solutions across various sectors. We harness state-of-the-art technology and deep industry expertise to drive digital transformation and sustainable growth in Kenya.
+        </p>
+        <p>
+          Operating in a dynamic market, we offer a diverse range of services—from custom software development to IT consultancy and cloud integration—designed to meet modern business challenges. Our proactive approach in regulatory compliance and strategic partnerships sets us apart as a trusted partner for both public and private sector projects.
+        </p>
+      </div>
+      <!-- Image Column -->
+      <div class="about-image">
+        <img src="images/ABOUT.jpg" alt="Bencode Technologies Team">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Services Section -->
+<section id="services">
+  <div class="services-container">
+    <h2>Our Services</h2>
+    <div class="services-cards">
+      <!-- Custom Software -->
+      <div class="service-card">
+        <img src="images/software.jpg" alt="Custom Software">
+        <h3>Custom Software</h3>
+        <p>Tailored software solutions that meet your unique business needs.</p>
+      </div>
+      <!-- Computer Accessories -->
+      <div class="service-card">
+        <img src="images/accessories.jpg" alt="Computer Accessories">
+        <h3>Computer Accessories</h3>
+        <p>High-quality accessories to enhance your computing experience.</p>
+      </div>
+      <!-- Office Stationeries -->
+      <div class="service-card">
+        <img src="images/stationary.jpg" alt="Office Stationeries">
+        <h3>Office Stationeries</h3>
+        <p>Essential supplies that keep your office running smoothly.</p>
+      </div>
+      <!-- IT Consultancy -->
+      <div class="service-card">
+        <img src="images/consultancy2.jpg" alt="IT Consultancy">
+        <h3>IT Consultancy</h3>
+        <p>Expert advice to optimize your IT infrastructure and strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why-choose-us">
+  <div class="why-container">
+    <h2>Why Choose Us?</h2>
+    <p class="subheading">Delivering Excellence in Technology Solutions</p>
+    
+    <div class="why-grid">
+      <div class="why-card">
+        <img src="images/industry.jpg" alt="Industry Expertise">
+        <h3>Industry Expertise</h3>
+        <p>With years of experience, we bring innovative and tailored tech solutions.</p>
+      </div>
+      
+      <div class="why-card">
+        <img src="images/quality.jpg" alt="Quality Assurance">
+        <h3>Quality Assurance</h3>
+        <p>We prioritize high-quality service delivery with top-tier security and reliability.</p>
+      </div>
+      
+      <div class="why-card">
+        <img src="images/customer.png" alt="Customer-Centric Approach">
+        <h3>Customer-Centric Approach</h3>
+        <p>Our solutions are built around your needs, ensuring satisfaction.</p>
+      </div>
+      
+      <div class="why-card">
+        <img src="images/technology.png" alt="Cutting-Edge Technology">
+        <h3>Cutting-Edge Technology</h3>
+        <p>We integrate the latest tech to keep you ahead of the competition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+  <!-- JavaScript for Responsive Navigation Toggle -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
