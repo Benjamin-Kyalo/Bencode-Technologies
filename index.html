@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bencode Technologies | Landing Page</title>
-  <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Navigation Section -->
-  <nav>
-    <!-- Navigation Brand with Round Logo -->
+  <nav class="sticky">
+    <!-- Navigation Brand with Logo -->
     <div class="nav-brand">
       <img src="images/logo.png" alt="Bencode Technologies Logo" class="logo">
       Bencode Technologies
     </div>
-    <!-- Navigation Toggle for Mobile -->
-    <div class="nav-toggle" id="navToggle">&#9776;</div>
+    <!-- Navigation Actions -->
+    <div class="nav-actions">
+      <!-- Theme Toggle -->
+      <div class="theme-toggle" id="themeToggle">🌙</div>
+      <!-- Mobile Navigation Toggle -->
+      <div class="nav-toggle" id="navToggle">&#9776;</div>
+    </div>
     <!-- Navigation Links -->
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
@@ -36,105 +40,132 @@
   </section>
 
   <!-- About Us Section -->
-<section id="about">
-  <div class="about-container">
-    <h2>About Us</h2>
-    <div class="about-content">
-      <!-- Text Column -->
-      <div class="about-text">
-        <p>
-          Bencode Technologies is a forward-thinking technology firm dedicated to delivering innovative digital solutions across various sectors. We harness state-of-the-art technology and deep industry expertise to drive digital transformation and sustainable growth in Kenya.
-        </p>
-        <p>
-          Operating in a dynamic market, we offer a diverse range of services—from custom software development to IT consultancy and cloud integration—designed to meet modern business challenges. Our proactive approach in regulatory compliance and strategic partnerships sets us apart as a trusted partner for both public and private sector projects.
-        </p>
-      </div>
-      <!-- Image Column -->
-      <div class="about-image">
-        <img src="images/ABOUT.jpg" alt="Bencode Technologies Team">
+  <section id="about">
+    <div class="about-container">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <!-- Text Column -->
+        <div class="about-text">
+          <p>
+            Bencode Technologies is a forward-thinking technology firm dedicated to delivering innovative digital solutions across various sectors. We harness state-of-the-art technology and deep industry expertise to drive digital transformation and sustainable growth in Kenya.
+          </p>
+          <p>
+            Operating in a dynamic market, we offer a diverse range of services—from custom software development to IT consultancy and cloud integration—designed to meet modern business challenges.
+          </p>
+        </div>
+        <!-- Image Column -->
+        <div class="about-image">
+          <img src="images/ABOUT.jpg" alt="Bencode Technologies Team">
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="services-container">
+      <h2>Our Services</h2>
+      <div class="services-cards">
+        <div class="service-card">
+          <img src="images/software.jpg" alt="Custom Software">
+          <h3>Custom Software</h3>
+          <p>Tailored software solutions that meet your unique business needs.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/accessories.jpg" alt="Computer Accessories">
+          <h3>Computer Accessories</h3>
+          <p>High-quality accessories to enhance your computing experience.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/stationary.jpg" alt="Office Stationeries">
+          <h3>Office Stationeries</h3>
+          <p>Essential supplies that keep your office running smoothly.</p>
+        </div>
+        <div class="service-card">
+          <img src="images/consultancy2.jpg" alt="IT Consultancy">
+          <h3>IT Consultancy</h3>
+          <p>Expert advice to optimize your IT infrastructure and strategy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio & Resume Section -->
+<section id="portfolio-resume">
+  <div class="pr-container">
+    <h2>Portfolio & Resume</h2>
+    <div class="pr-tabs">
+      <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
+      <button class="tab-btn" data-tab="resume">Resume</button>
+    </div>
+    <div class="pr-content">
+      <!-- Portfolio Tab Content -->
+      <div class="tab-content active" id="portfolio">
+        <div class="portfolio-grid">
+          <!-- Single Creative Portfolio Item for AfyaKE Digital Health System -->
+          <div class="portfolio-item">
+            <img src="images/hospital_hall.jpg" alt="AfyaKE Digital Health System">
+            <div class="portfolio-overlay">
+              <h3>AfyaKE Digital Health System</h3>
+              <p>
+                A transformative digital health solution designed to streamline hospital operations, enhance patient care, and empower medical staff through efficient system integration.
+              </p>
+              <a href="https://kajiado.afyake.go.ke" target="_blank" rel="noopener noreferrer" class="view-project">View Details</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resume Tab Content (No Summary, No Education, No Referees) -->
+<div class="tab-content" id="resume">
+  <div class="resume-section">
+    <h3>Work Experience</h3>
+    <ul class="timeline">
+      <li>
+        <span class="date">Feb 2023 – To Date</span>
+        <div class="timeline-content">
+          <h4>Kitengela Sub-County Hospital</h4>
+          <p>
+            • Led the deployment and management of the AfyaKE digital health system, enhancing healthcare delivery and streamlining hospital operations.<br>
+            • Provided technical support for hardware, software, and network systems, ensuring smooth system functionality and user satisfaction.<br>
+            • Conducted training sessions for staff on various computer applications and the new system, fostering increased adoption and efficiency.<br>
+            • Collaborated with stakeholders to optimize ICT solutions that support hospital workflows and improve patient care.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span class="date">Sep 2020 - Dec 2023</span>
+        <div class="timeline-content">
+          <h4>Fulltime Solar Solutions</h4>
+          <p>
+            • Maintained knowledge of company policies and regulatory requirements, ensuring compliance and smooth IT operations.<br>
+            • Created detailed reports on sales trends that guided adjustments to marketing strategies for improved business outcomes.<br>
+            • Leveraged problem-solving skills to swiftly resolve customer service issues, ensuring high levels of client satisfaction.<br>
+            • Assisted in the development and implementation of IT solutions that enhanced business efficiency and streamlined operations.
+          </p>
+        </div>
+      </li>
+      <li>
+        <span class="date">Jan 2025 - Present</span>
+        <div class="timeline-content">
+          <h4>Professional Foundations at ALX Africa</h4>
+          <p>
+            Engaged in continuous professional development to further enhance technical and leadership skills.
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Download Resume Button (optional) -->
+    <a href="Benjamin_Kyalo_CV_2025.pdf" class="download-resume" target="_blank">Download Full Resume</a>
   </div>
+</div>
+
 </section>
 
 
-<!-- Services Section -->
-<section id="services">
-  <div class="services-container">
-    <h2>Our Services</h2>
-    <div class="services-cards">
-      <!-- Custom Software -->
-      <div class="service-card">
-        <img src="images/software.jpg" alt="Custom Software">
-        <h3>Custom Software</h3>
-        <p>Tailored software solutions that meet your unique business needs.</p>
-      </div>
-      <!-- Computer Accessories -->
-      <div class="service-card">
-        <img src="images/accessories.jpg" alt="Computer Accessories">
-        <h3>Computer Accessories</h3>
-        <p>High-quality accessories to enhance your computing experience.</p>
-      </div>
-      <!-- Office Stationeries -->
-      <div class="service-card">
-        <img src="images/stationary.jpg" alt="Office Stationeries">
-        <h3>Office Stationeries</h3>
-        <p>Essential supplies that keep your office running smoothly.</p>
-      </div>
-      <!-- IT Consultancy -->
-      <div class="service-card">
-        <img src="images/consultancy2.jpg" alt="IT Consultancy">
-        <h3>IT Consultancy</h3>
-        <p>Expert advice to optimize your IT infrastructure and strategy.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Why Choose Us Section -->
-<section id="why-choose-us">
-  <div class="why-container">
-    <h2>Why Choose Us?</h2>
-    <p class="subheading">Delivering Excellence in Technology Solutions</p>
-    
-    <div class="why-grid">
-      <div class="why-card">
-        <img src="images/industry.jpg" alt="Industry Expertise">
-        <h3>Industry Expertise</h3>
-        <p>With years of experience, we bring innovative and tailored tech solutions.</p>
-      </div>
-      
-      <div class="why-card">
-        <img src="images/quality.jpg" alt="Quality Assurance">
-        <h3>Quality Assurance</h3>
-        <p>We prioritize high-quality service delivery with top-tier security and reliability.</p>
-      </div>
-      
-      <div class="why-card">
-        <img src="images/customer.png" alt="Customer-Centric Approach">
-        <h3>Customer-Centric Approach</h3>
-        <p>Our solutions are built around your needs, ensuring satisfaction.</p>
-      </div>
-      
-      <div class="why-card">
-        <img src="images/technology.png" alt="Cutting-Edge Technology">
-        <h3>Cutting-Edge Technology</h3>
-        <p>We integrate the latest tech to keep you ahead of the competition.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  
-  <!-- JavaScript for Responsive Navigation Toggle -->
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-  </script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

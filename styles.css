@@ -1,9 +1,22 @@
-/* Enable smooth scrolling for internal links */
+/* Define CSS Variables for Easy Theming */
+:root {
+  --primary-color: #e74c3c;
+  --secondary-color: #f39c12;
+  --accent-color: #1abc9c;
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+}
+
+/* Dark theme override */
+[data-theme="dark"] {
+  --bg-color: #333;
+  --text-color: #f9f9f9;
+}
+
+/* Global Styles */
 html {
   scroll-behavior: smooth;
 }
-
-/* Reset and Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,23 +24,25 @@ html {
 }
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f9f9f9;
-}
-a {
-  text-decoration: none;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Navigation Styles */
 nav {
-  /* Bright, attractive gradient background */
-  background: linear-gradient(90deg, #f39c12, #e74c3c);
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color),
+    var(--primary-color)
+  );
   padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .nav-brand {
   display: flex;
@@ -43,9 +58,24 @@ nav {
   margin-right: 10px;
   border: 2px solid #fff;
 }
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+.theme-toggle,
+.nav-toggle {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.3s ease;
+  margin-right: 10px;
+}
+.theme-toggle:hover,
+.nav-toggle:hover {
+  transform: scale(1.1);
+}
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
   list-style: none;
 }
 .nav-links li {
@@ -61,64 +91,7 @@ nav {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Responsive Navigation Toggle */
-.nav-toggle {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
-}
-
-/* Landing Page Styles */
-.landing {
-  background: url("images/background1.jpeg") no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  position: relative;
-}
-.landing::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Bright overlay with slight transparency for contrast */
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-.landing-content {
-  position: relative;
-  z-index: 2;
-  padding: 20px;
-}
-.landing-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-.landing-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-.cta-btn {
-  padding: 12px 24px;
-  font-size: 1rem;
-  background: #1abc9c;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.cta-btn:hover {
-  background: #16a085;
-}
-
-/* Media Query for Responsive Navigation */
+/* Mobile Responsive Navigation */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
@@ -139,24 +112,73 @@ nav {
   }
 }
 
-/* About Us Section Styles */
-#about {
-  background: #ffffff;
-  padding: 60px 20px;
+/* Landing Page Styles */
+.landing {
+  background: url("images/background1.jpeg") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.landing-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+.landing-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.landing-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.cta-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.cta-btn:hover {
+  background: #16a085;
 }
 
-.about-container {
+/* About and Services Sections */
+#about,
+#services {
+  padding: 60px 20px;
+}
+.about-container,
+.services-container {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-#about h2 {
+#about h2,
+#services h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: #e74c3c; /* Bright, attractive red */
+  color: var(--primary-color);
 }
 
+/* About Section Specific Styles */
 .about-content {
   display: flex;
   flex-wrap: wrap;
@@ -164,26 +186,20 @@ nav {
   justify-content: space-between;
   gap: 20px;
 }
-
 .about-text {
   flex: 1 1 500px;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #333;
 }
-
 .about-image {
   flex: 1 1 400px;
   text-align: center;
 }
-
 .about-image img {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* Responsive Adjustments for About Section */
 @media (max-width: 768px) {
   .about-content {
     flex-direction: column;
@@ -194,31 +210,13 @@ nav {
   }
 }
 
-/* Services Section Styles */
-#services {
-  background: #f0f0f0;
-  padding: 60px 20px;
-}
-
-.services-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#services h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #e74c3c; /* Bright accent color */
-}
-
+/* Services Section Specific Styles */
 .services-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
-
 .service-card {
   background: #fff;
   padding: 20px;
@@ -227,33 +225,241 @@ nav {
   flex: 1 1 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
-/* Increase image size for better visibility */
 .service-card img {
   width: 150px;
   height: 150px;
   margin-bottom: 20px;
 }
-
-/* Increase text sizes for better legibility */
 .service-card h3 {
   font-size: 1.7rem;
   margin-bottom: 10px;
 }
-
 .service-card p {
   font-size: 1.1rem;
   color: #555;
 }
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .services-cards {
     flex-direction: column;
+  }
+}
+
+/* Portfolio & Resume Section Container */
+#portfolio-resume {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.pr-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#portfolio-resume h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+/* Tabs Styles */
+.pr-tabs {
+  margin-bottom: 30px;
+}
+.tab-btn {
+  background: var(--accent-color);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.tab-btn:hover,
+.tab-btn.active {
+  background: #16a085;
+}
+
+/* Tab Content */
+.pr-content .tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.pr-content .tab-content.active {
+  display: block;
+}
+
+/* Portfolio Styles */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.portfolio-item img {
+  width: 100%;
+  max-height: 220px; /* Adjust this value as needed */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+.portfolio-overlay h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.portfolio-overlay p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.view-project {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.view-project:hover {
+  background: #16a085;
+}
+
+/* Resume Styles */
+.resume-section {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.resume-section h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+.resume-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Timeline Container */
+.timeline {
+  list-style: none;
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 150px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 75px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent-color);
+}
+.timeline li {
+  position: relative;
+  margin-bottom: 50px;
+  min-height: 50px;
+}
+.timeline .date {
+  font-weight: bold;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  position: absolute;
+  left: 75px;
+  top: 0;
+  transform: translateX(-50%);
+  min-width: 140px;
+  text-align: center;
+  white-space: nowrap;
+}
+.timeline-content {
+  margin-left: 160px;
+}
+.timeline-content h4 {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+/* Download Resume Button */
+.download-resume {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.download-resume:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
+  }
+  .timeline .date {
+    left: -35px;
+    transform: none;
+  }
+  .timeline-content {
+    margin-left: 20px;
+  }
+  .resume-section {
+    padding: 10px;
   }
 }
